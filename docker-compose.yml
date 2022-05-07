@@ -1,0 +1,11 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+    image: "fastapi"
+    ports: 
+      - 8000:8000
+    volumes:
+      - ./backend:/src
+    tty: true
