@@ -40,8 +40,8 @@ def sign_out(response: Response):
     return {"message": "Successfully logged-out"}
 
 
-@router.get("/api/user/{user_id}", response_model=UserInfo)
-def get_user(request: Request, response: Response, user_id: str):
+@router.get("/api/user", response_model=UserInfo)
+def get_user(request: Request, response: Response):
     new_token, subject = auth.verify_update_jwt(request)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
     return {"email": subject}
