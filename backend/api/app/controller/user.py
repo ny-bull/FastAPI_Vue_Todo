@@ -32,14 +32,14 @@ class UserController:
         self.db.refresh(db_item)
         return db_item
 
-    def login(self, user: schemas.UserBase) -> str:
+    def sign_in(self, user: schemas.UserBase) -> str:
         email = user.email
         password = user.password
 
         db_user: schemas.User = self.get_user_by_email(email)
         if not db_user or not auth.verify_pw(password, db_user.password):
             raise HTTPException(status_code=401, detail="invalid email or password")
-        token = auth.encode_jwt(user["email"])
+        token = auth.encode_jwt(email)
         return token
 
     def get_user(self) -> schemas.User:
