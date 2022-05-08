@@ -18,9 +18,6 @@ class Todo(TodoBase):
 
 class UserBase(BaseModel):
     email: str
-
-
-class UserCreate(UserBase):
     password: str
 
 
