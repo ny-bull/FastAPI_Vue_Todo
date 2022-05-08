@@ -15,7 +15,7 @@ class UserController:
         self.db = db
         self.user_id = user_id
 
-    def create_user(self, user: schemas.UserBase) -> models.User:
+    def create_user(self, user: schemas.UserCreate) -> models.User:
         email = user.email
         password = user.password
 
@@ -32,7 +32,7 @@ class UserController:
         self.db.refresh(db_item)
         return db_item
 
-    def sign_in(self, user: schemas.UserBase) -> str:
+    def sign_in(self, user: schemas.UserCreate) -> str:
         email = user.email
         password = user.password
 

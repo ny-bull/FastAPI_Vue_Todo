@@ -16,14 +16,22 @@ class Todo(TodoBase):
         orm_mode = True
 
 
-class UserBase(BaseModel):
+class UserInfo(BaseModel):
+    email: str
+
+
+class UserCreate(UserInfo):
     email: str
     password: str
 
 
-class User(UserBase):
+class User(UserInfo):
     id: int
     items: list[Todo] = []
 
     class Config:
         orm_mode = True
+
+
+class SuccessMsg(BaseModel):
+    message: str
