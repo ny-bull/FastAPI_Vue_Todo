@@ -1,3 +1,4 @@
+import email
 from fastapi import HTTPException
 from typing import List
 from fastapi import Depends, FastAPI, Response, Request
@@ -40,8 +41,10 @@ def sign_out(response: Response):
     return {"message": "Successfully logged-out"}
 
 
-@router.get("/api/user", response_model=UserInfo)
-def get_user(request: Request, response: Response):
+@router.get("/api/user", response_model=User)
+def get_user(request: Request, response: Response, db: Session = Depends(database.get_db)):
     new_token, subject = auth.verify_update_jwt(request)
     response.set_cookie(key="access_token", value=f"Bearer {new_token}", httponly=True, samesite="none", secure=True)
-    return {"email": subject}
+    controller = UserController(None, db)
+    user = controller.get_user_by_email(subject)
+    return user
