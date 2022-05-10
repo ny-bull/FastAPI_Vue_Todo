@@ -25,7 +25,7 @@ class AuthCsrfJwt:
 
     def decode_jwt(self, token: str) -> str:
         try:
-            payload = jwt.decode(token)
+            payload = jwt.decode(token, SECRET_KEY, ALGORITHM)
             return payload["sub"]
         except jwt.ExpiredSignatureError:
             raise HTTPException(status_code=401, detail="The JWT has expired")

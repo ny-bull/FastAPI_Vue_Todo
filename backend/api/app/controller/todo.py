@@ -1,4 +1,5 @@
 from typing import List
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from app.models.database import SessionLocal
 import app.schemas.schemas as schemas
@@ -23,4 +24,20 @@ class TodoController:
 
     def read_single_todo(self, id: int) -> schemas.Todo:
         result: models.Todo = self.db.query(models.Todo).filter(models.Todo.id == id).first()
-        return result
+        return schemas.Todo.from_orm(result)
+
+    def update_todo(self, todo: schemas.TodoBase, id: int) -> schemas.Todo:
+        db_todo: models.Todo = self.db.query(models.Todo).filter(models.Todo.id == id).first()
+        if db_todo:
+            db_todo.title = todo.title
+            db_todo.description = todo.description
+            self.db.commit()
+            self.db.refresh(db_todo)
+            return schemas.Todo.from_orm(db_todo)
+        else:
+            raise HTTPException(status_code=401, detail="invalid todo_id")
+
+    def delete_todo(self, id: int) -> int:
+        self.db.query(models.Todo).filter(models.Todo.id == id).delete()
+        self.db.commit()
+        return id
