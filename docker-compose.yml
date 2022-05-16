@@ -9,3 +9,11 @@ services:
     volumes:
       - ./backend:/src
     tty: true
+
+  frontend:
+    build:
+      context: ./frontend
+    image: "vuev2"
+    volumes:
+      - ./frontend:/src
+    tty: true
