@@ -1,4 +1,10 @@
-const { defineConfig } = require("@vue/cli-service");
+const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
-});
+  configureWebpack: {
+    watch: true,
+    watchOptions: {
+      poll: 1000,
+    },
+  },
+})
