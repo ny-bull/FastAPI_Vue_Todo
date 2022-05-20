@@ -8,6 +8,6 @@ export interface TodosState {
   todos: Todo[]
 }
 
-export interface TokenState{
-  token:String
+export interface TokenState {
+  token: string
 }

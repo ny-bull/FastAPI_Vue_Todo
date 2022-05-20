@@ -5,7 +5,7 @@ import actions from './actions'
 import mutations from './mutations'
 
 const state: TokenState = {
-  token: "",
+  token: '',
 }
 
 export const token: Module<TokenState, RootState> = {

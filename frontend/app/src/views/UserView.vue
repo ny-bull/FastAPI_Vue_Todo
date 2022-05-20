@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <login-view v-if='register' ></login-view>
+    <login-view v-if="register"></login-view>
     <button @click="changeLogin()">Login</button>
   </div>
 </template>
@@ -10,16 +10,16 @@ import { Component, Vue } from 'vue-property-decorator'
 import loginView from '@/components/login.vue'
 
 @Component({
-  data(){
+  data() {
     return {
-       register:false,
+      register: false,
     }
   },
   methods: {
-    changeLogin():void {
-      console.log(this.register);
-      this.register = !this.register;
-      }
+    changeLogin(): void {
+      console.log(this.register)
+      this.register = !this.register
+    },
   },
   components: {
     loginView,
