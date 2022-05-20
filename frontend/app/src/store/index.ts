@@ -1,14 +1,16 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex, { StoreOptions } from 'vuex'
+import { RootState } from './types'
+import { todos } from './Todo'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store: StoreOptions<RootState> = {
   state: {
-    "token" :""
+    version: '1.0.0',
   },
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+  modules: {
+    todos,
+  },
+}
+export default new Vuex.Store<RootState>(store)

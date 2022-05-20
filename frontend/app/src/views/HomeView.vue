@@ -5,12 +5,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import  loginView from "@/components/login.vue"
+import { Component, Vue } from 'vue-property-decorator'
+import loginView from '@/components/login.vue'
 
 @Component({
   components: {
-    loginView
+    loginView,
   },
 })
 export default class HomeView extends Vue {}
