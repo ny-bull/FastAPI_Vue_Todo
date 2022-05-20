@@ -7,3 +7,7 @@ export interface RootState {
 export interface TodosState {
   todos: Todo[]
 }
+
+export interface TokenState{
+  token:String
+}
