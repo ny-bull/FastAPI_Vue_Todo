@@ -8,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.7",
     "core-js": "^3.8.3",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24",
     "vue": "^2.6.14",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
@@ -47,10 +50,10 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": { 
+    "rules": {
       "vue/no-unused-components": "warn",
       "prettier/prettier": "warn",
-      "vue/multi-word-component-names": "off" 
+      "vue/multi-word-component-names": "off"
     }
   },
   "browserslist": [
