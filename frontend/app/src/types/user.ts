@@ -6,3 +6,8 @@ export interface User {
   password: string
   todos: Todo[]
 }
+
+export interface AuthInfo{
+  email:string
+  password:string
+}

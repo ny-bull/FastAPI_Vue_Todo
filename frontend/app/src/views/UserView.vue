@@ -1,31 +1,32 @@
 <template>
-  <div class="home">
-    <login-view v-if="register"></login-view>
-    <button @click="changeLogin()">Login</button>
+  <div class="user">
+    <!-- <button @click="changeMode()">{{isNew ? "SignIn" : "SignUp"}}</button> -->
+    <SignForm :is-new="isNew"></SignForm>
+  <button @click="changeMode()" class="mb-8 text-yellow-200">{{isNew? 
+    "Already member here!":
+   "Not yet member here"}}
+   </button>
   </div>
+
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import loginView from '@/components/login.vue'
+import SignForm from '@/components/signForm.vue'
 
 @Component({
-  data() {
-    return {
-      register: false,
-    }
-  },
-  methods: {
-    changeLogin(): void {
-      console.log(this.register)
-      this.register = !this.register
-    },
-  },
   components: {
-    loginView,
+    SignForm,
   },
 })
-export default class HomeView extends Vue {}
+
+export default class UserView extends Vue {
+  public isNew = true;
+  changeMode(){
+    this.isNew = !this.isNew;
+  }
+  
+}
 </script>
 
 <style>

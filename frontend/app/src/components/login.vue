@@ -31,19 +31,18 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  data() {
-    return {
-      loginInfo: { mail: '', password: '' },
-    }
-  },
-})
-export default class Login extends Vue {}
+@Component({})
+
+@Component
+export default class Login extends Vue {
+  loginInfo={
+    email:"",
+    password:""
+  }
+}
 </script>
 
 <style>
-div {
-}
 input {
   border-color: rgb(0 0 0);
   border-style: solid;
