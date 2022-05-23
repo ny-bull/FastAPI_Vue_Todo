@@ -4,3 +4,7 @@ export interface Todo {
   description: string
   owner_id: number
 }
+
+export interface TodosState {
+  todos: Todo[]
+}

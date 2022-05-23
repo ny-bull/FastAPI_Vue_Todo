@@ -1,26 +1,33 @@
-import axios, { AxiosRequestHeaders } from 'axios';
-import { AuthInfo } from '@/types/user';
+import axios, { AxiosRequestHeaders, AxiosResponse, AxiosError } from 'axios'
+import { AuthInfo } from '@/types/user'
 
-const endpointUrl = "http://localhost:8080";
+const endpointUrl = 'http://127.0.0.1:8000'
 
 interface RequestConfig {
-    method:string
-    url:string
-    headers:AxiosRequestHeaders
-    data:AuthInfo
+  method: string
+  url: string
+  headers: AxiosRequestHeaders
+  data: AuthInfo
+  withCredentials: boolean
 }
 
 export default class Auth {
-
-    login(authInfo:AuthInfo) {
-        const config:RequestConfig  = {
-            method:"post",
-            url :endpointUrl,
-            headers: { "Content-Type": "application/json" },
-            data:authInfo
-        }
-        return axios.request(config)
-        .then(res => res)
-        .catch(error => { throw error })
+  login(authInfo: AuthInfo) {
+    const config: RequestConfig = {
+      method: 'POST',
+      url: endpointUrl + '/api/signin',
+      headers: { 'Content-Type': 'application/json' },
+      data: authInfo,
+      withCredentials: true,
     }
+    return axios
+      .request(config)
+      .then((res: AxiosResponse) => {
+        const { data } = res
+        return data
+      })
+      .catch((error: AxiosError<{ error: string }>) => {
+        throw error
+      })
+  }
 }

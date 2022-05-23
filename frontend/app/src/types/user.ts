@@ -7,7 +7,11 @@ export interface User {
   todos: Todo[]
 }
 
-export interface AuthInfo{
-  email:string
-  password:string
+export interface AuthInfo {
+  email: string
+  password: string
+}
+
+export interface UserState {
+  userId: number
 }

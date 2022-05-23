@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
-import { RootState } from './types'
 import { todos } from './Todo'
+import { UserModule } from './user'
 
 Vue.use(Vuex)
+
+export interface RootState {
+  version: string
+}
 
 const store: StoreOptions<RootState> = {
   state: {
@@ -11,6 +15,7 @@ const store: StoreOptions<RootState> = {
   },
   modules: {
     todos,
+    UserModule,
   },
 }
 export default new Vuex.Store<RootState>(store)

@@ -2,12 +2,10 @@
   <div class="user">
     <!-- <button @click="changeMode()">{{isNew ? "SignIn" : "SignUp"}}</button> -->
     <SignForm :is-new="isNew"></SignForm>
-  <button @click="changeMode()" class="mb-8 text-yellow-200">{{isNew? 
-    "Already member here!":
-   "Not yet member here"}}
-   </button>
+    <button @click="changeMode()" class="mb-8 text-yellow-200">
+      {{ isNew ? 'Already member here!' : 'Not yet member here' }}
+    </button>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -19,13 +17,11 @@ import SignForm from '@/components/signForm.vue'
     SignForm,
   },
 })
-
 export default class UserView extends Vue {
-  public isNew = true;
-  changeMode(){
-    this.isNew = !this.isNew;
+  public isNew = true
+  changeMode() {
+    this.isNew = !this.isNew
   }
-  
 }
 </script>
 

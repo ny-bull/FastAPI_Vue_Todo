@@ -1,5 +1,4 @@
 <template>
-
   <div id="app">
     <nav class="pb-6">
       <router-link to="/">User</router-link> |
@@ -9,9 +8,8 @@
   </div>
 </template>
 
-<style >
-body{
+<style>
+body {
   background-color: gainsboro;
 }
-
 </style>

@@ -1,5 +1,6 @@
+import { TodosState } from '@/types/todo'
 import { GetterTree } from 'vuex'
-import { TodosState, RootState } from '../types'
+import { RootState } from '..'
 
 const getters: GetterTree<TodosState, RootState> = {
   size: (state: TodosState) => {

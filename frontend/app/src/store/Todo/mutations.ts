@@ -1,6 +1,5 @@
 import { MutationTree } from 'vuex'
-import { TodosState } from '../types'
-import { Todo } from '@/types/todo'
+import { Todo, TodosState } from '@/types/todo'
 
 const mutations: MutationTree<TodosState> = {
   add: (state, todo: Todo) => {

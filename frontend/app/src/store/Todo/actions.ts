@@ -1,5 +1,6 @@
+import { TodosState } from '@/types/todo'
 import { ActionTree } from 'vuex'
-import { TodosState, RootState } from '../types'
+import { RootState } from '..'
 
 const actions: ActionTree<TodosState, RootState> = {
   //   add: async ({ commit }, todo: Todo) => {
