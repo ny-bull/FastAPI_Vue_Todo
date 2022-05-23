@@ -27,12 +27,14 @@ def post_user(user: UserCreate, db: Session = Depends(database.get_db)):
     return new_user
 
 
-@router.post("/api/signin", response_model=SuccessMsg)
+@router.post("/api/signin", response_model=User)
 def sign_in(response: Response, user: UserCreate, db: Session = Depends(database.get_db)):
     controller = UserController(None, db)
     token = controller.sign_in(user)
     response.set_cookie(key="access_token", value=f"Bearer {token}", httponly=True, samesite="none", secure=True)
-    return {"message": "Successfully logged-in"}
+    
+    user = controller.get_user_by_email(user.email)
+    return user
 
 
 @router.post("/api/signout", response_model=SuccessMsg)
