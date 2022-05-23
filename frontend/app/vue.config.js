@@ -4,7 +4,7 @@ module.exports = defineConfig({
   configureWebpack: {
     watch: true,
     watchOptions: {
-      poll: 1000,
+      poll: 10000,
     },
   },
 })
