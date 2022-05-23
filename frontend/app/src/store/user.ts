@@ -18,6 +18,17 @@ const actions: ActionTree<UserState, RootState> = {
     const res: User = await new Auth().login(authInfo)
     context.commit('set', res.id)
   },
+  register:async (context,authInfo:AuthInfo) => {
+    const auth = new Auth()
+    const _ = await auth.register(authInfo)
+    const res: User = await auth.login(authInfo)
+    context.commit('set', res.id)
+  },
+  logout:async(context)=>{
+    const auth = new Auth()
+    auth.logout()
+    context.commit('reset')
+  }
 }
 
 const mutations: MutationTree<UserState> = {

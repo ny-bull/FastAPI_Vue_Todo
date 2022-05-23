@@ -45,6 +45,8 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import Auth from '../api/auth'
 
+
+
 @Component
 export default class SignForm extends Vue {
   @Prop()
@@ -56,8 +58,14 @@ export default class SignForm extends Vue {
   }
 
   submit() {
-    this.$store.dispatch('UserModule/login', this.signInfo)
-    this.$router.push('/todo')
+    if (this.isNew) {
+      this.$store.dispatch("UserModule/register",this.signInfo)
+    this.$router.push("/todo")
+      } else {
+      this.$store.dispatch('UserModule/login', this.signInfo)
+      this.$router.push('/todo')
+    }
+
   }
 }
 </script>
