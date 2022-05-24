@@ -4,11 +4,11 @@ services:
     build:
       context: ./backend
     image: "fastapi"
-    ports: 
-      - 8000:8000
     volumes:
       - ./backend:/src
-    tty: true
+    ports:
+      - "9004:9004"
+    command: uvicorn app.main:app --reload --host 0.0.0.0 --port 9004
 
   frontend:
     build:
@@ -16,4 +16,6 @@ services:
     image: "vuev2"
     volumes:
       - ./frontend:/src
+    ports:
+      - 8080:8080
     tty: true

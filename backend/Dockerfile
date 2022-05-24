@@ -9,4 +9,5 @@ COPY ./api/poetry.lock ./api/pyproject.toml ./
 
 RUN pip install poetry &&\
     poetry config virtualenvs.create false &&\
-    poetry install
+    poetry install 
+WORKDIR /src/api

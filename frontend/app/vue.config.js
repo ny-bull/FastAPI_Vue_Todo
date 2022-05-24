@@ -5,6 +5,7 @@ module.exports = defineConfig({
     watch: true,
     watchOptions: {
       poll: 10000,
+      ignored: '/node_modules/',
     },
   },
 })
