@@ -1,9 +1,10 @@
 import axios, { AxiosRequestHeaders, AxiosResponse, AxiosError } from 'axios'
 
-const endpointUrl = 'http://127.0.0.1:8000'
+const endpointUrl = 'http://localhost:9004'
 
-const readTodo = () => {
-
+const readTodo = async (userId:number) => {
+    const res = await axios.post(endpointUrl + `/api/todos/${userId}`)
+    return res.data
 }
 
 export {readTodo}

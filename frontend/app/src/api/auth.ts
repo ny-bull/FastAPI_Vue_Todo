@@ -1,7 +1,7 @@
 import axios, { AxiosRequestHeaders, AxiosResponse, AxiosError } from 'axios'
 import { AuthInfo } from '@/types/user'
 
-const endpointUrl = 'http://127.0.0.1:8000'
+const endpointUrl = 'http://localhost:9004'
 
 interface RequestConfig {
   method: string

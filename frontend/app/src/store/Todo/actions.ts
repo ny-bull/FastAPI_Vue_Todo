@@ -4,8 +4,8 @@ import { RootState } from '..'
 import {readTodo} from "@/api/todos"
 
 const actions: ActionTree<TodosState, RootState> = {
-  get:async (state) => {
-    const res = await readTodo()
+  get:async (state,userId:number) => {
+    const data = await readTodo(userId)
   }
   //   add: async ({ commit }, todo: Todo) => {
   //     if (await someAsyncAddMethod(todo)) {
