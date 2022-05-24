@@ -9,7 +9,7 @@ const state: TodosState = {
   todos: [],
 }
 
-export const todos: Module<TodosState, RootState> = {
+export const TodosModule: Module<TodosState, RootState> = {
   namespaced: true,
   state,
   getters,

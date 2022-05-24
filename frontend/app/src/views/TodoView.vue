@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import Auth from '../api/auth'
 
 @Component
 export default class TodoView extends Vue {

@@ -43,7 +43,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import Auth from '../api/auth'
 
 
 
@@ -60,7 +59,8 @@ export default class SignForm extends Vue {
   submit() {
     if (this.isNew) {
       this.$store.dispatch("UserModule/register",this.signInfo)
-    this.$router.push("/todo")
+      this.$router.push("/todo")
+      this.$store.dispatch("")
       } else {
       this.$store.dispatch('UserModule/login', this.signInfo)
       this.$router.push('/todo')

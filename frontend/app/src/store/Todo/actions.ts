@@ -1,8 +1,12 @@
 import { TodosState } from '@/types/todo'
 import { ActionTree } from 'vuex'
 import { RootState } from '..'
+import {readTodo} from "@/api/todos"
 
 const actions: ActionTree<TodosState, RootState> = {
+  get:async (state) => {
+    const res = await readTodo()
+  }
   //   add: async ({ commit }, todo: Todo) => {
   //     if (await someAsyncAddMethod(todo)) {
   //       commit('add', todo);

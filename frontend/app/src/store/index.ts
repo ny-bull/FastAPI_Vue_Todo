@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex, { StoreOptions } from 'vuex'
-import { todos } from './Todo'
+import { TodosModule } from './Todo'
 import { UserModule } from './user'
 
 Vue.use(Vuex)
@@ -14,7 +14,7 @@ const store: StoreOptions<RootState> = {
     version: '1.0.0',
   },
   modules: {
-    todos,
+    TodosModule,
     UserModule,
   },
 }
