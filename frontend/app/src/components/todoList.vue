@@ -3,13 +3,10 @@
     <div
       v-for="todo in todos"
       :key="todo.id"
-      class="w-1/2 mx-auto border border-black rounded-md"
+      class="py-4"
     >
-      <p>
-        {{ todo.title }}
-      </p>
-      <p>
-        {{ todo.description }}
+      <p class="text-center">
+        {{ todo.title }} : {{ todo.description }} <font-awesome-icon icon="fa-solid fa-trash" />
       </p>
     </div>
   </div>

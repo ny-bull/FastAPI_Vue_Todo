@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-2 mb-4">
     <div class="bg-white w-1/2 mx-auto rounded-lg">
       <div class="py-4">
         <label for="title" class="px-4">タイトル</label>

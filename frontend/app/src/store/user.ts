@@ -9,7 +9,6 @@ const state: UserState = {
 
 const getters: GetterTree<UserState, RootState> = {
   userId: (state: UserState) => {
-    console.log(state)
     return state.userId
   },
 }

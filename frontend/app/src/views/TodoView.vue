@@ -2,7 +2,6 @@
   <div class="todo">
     <todo-form></todo-form>
     <todo-list></todo-list>
-    <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
   </div>
 </template>
 

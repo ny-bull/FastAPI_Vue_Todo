@@ -30,14 +30,13 @@
         />
       </div>
       <button
-        class="rounded-md bg-slate-200 px-2 mt-8 w-4/5 py-2 text-slate-400"
+        class="rounded-md bg-slate-200 px-2 mt-8 w-2/5 py-2 text-slate-800 disabled:opacity-25"
         @click="submit()"
+        :disabled="!signInfo.password || !signInfo.email"
       >
         {{ isNew ? 'SignUp' : 'SignIn' }}
       </button>
     </div>
-    <!--debug-->
-    <p>{{ signInfo }}</p>
   </div>
 </template>
 
