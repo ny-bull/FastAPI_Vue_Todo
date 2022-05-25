@@ -16,7 +16,7 @@ app.include_router(todo_router.router)
 # CORSを回避するために追加（今回の肝）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:8080"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
