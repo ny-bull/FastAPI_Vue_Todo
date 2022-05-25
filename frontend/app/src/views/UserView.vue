@@ -1,4 +1,5 @@
 <template>
+
   <div class="user">
     <!-- <button @click="changeMode()">{{isNew ? "SignIn" : "SignUp"}}</button> -->
     <SignForm :is-new="isNew"></SignForm>
