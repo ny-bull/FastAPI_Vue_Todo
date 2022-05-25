@@ -1,29 +1,28 @@
 <template>
-  <div class="sign relative mt-16">
-    <div class="absolute w-screen -top-16">
-    </div>
-    <div class="bg-white 2/5 xl:w-1/4 lg:w-1/3 mx-auto pt-16 pb-8 rounded-lg">
-      <div>
-        <!-- <label for="mail" class="p-8">メールアドレス</label> -->
+  <div class="mt-4">
+    <div class="bg-white w-1/2 mx-auto rounded-lg">
+      <div class="py-4">
+        <label for="title" class="px-4">タイトル</label>
         <input
-          class="border border-black rounded-md bg-slate-50 mb-3 px-2 py-1 w-3/5"
+          class="border border-black rounded-md bg-slate-50 w-3/5"
           type="text"
-          id="mail"
-          placeholder="Email ID"
+          id="title"
+          placeholder="Title"
+          v-model.lazy="todoInfo.title"
         />
       </div>
 
-      <div>
-        <!-- <label for="password">password</label> -->
-        <input
-          class="border border-black rounded-md bg-slate-50 px-2 py-1 w-3/5"
-          type="password"
-          id="password"
-          placeholder="Password"
+      <div class="">
+        <label for="description" class="align-top px-4 mx-4">詳細</label>
+        <textarea
+          class="border border-black rounded-md bg-slate-50 w-3/5"
+          id="description"
+          placeholder="Description"
+          v-model.lazy="todoInfo.description"
         />
       </div>
       <button
-        class="rounded-md bg-slate-200 px-2 mt-8 w-4/5 py-2 text-slate-400"
+        class="rounded-md bg-slate-200 px-2 my-4 w-4/5 text-slate-400"
         @click="submit()"
       >
         登録
@@ -41,8 +40,25 @@ export default class TodoForm extends Vue {
     return this.$store.state.UserModule.userId
   }
 
-  get todos(){
+  get todos() {
     return this.$store.state.TodosModule.todos
+  }
+
+  todoInfo = {
+    title: '',
+    description: '',
+    userId: this.userId,
+  }
+
+  submit() {
+    this.$store.dispatch('TodosModule/post', this.todoInfo).then(() => {
+      this.$store.dispatch(
+        'TodosModule/get',
+        this.$store.state.UserModule.userId
+      )
+      this.todoInfo.title = ''
+      this.todoInfo.description = ''
+    })
   }
 }
 </script>

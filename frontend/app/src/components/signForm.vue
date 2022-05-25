@@ -44,8 +44,6 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
-
-
 @Component
 export default class SignForm extends Vue {
   @Prop()
@@ -58,14 +56,14 @@ export default class SignForm extends Vue {
 
   submit() {
     if (this.isNew) {
-      this.$store.dispatch("UserModule/register",this.signInfo)
-      this.$router.push("/todo")
-      // this.$store.dispatch("")
-      } else {
-      this.$store.dispatch('UserModule/login', this.signInfo)
-      this.$router.push('/todo')
+      this.$store.dispatch('UserModule/register', this.signInfo).then(() => {
+        this.$router.push('/todo')
+      })
+    } else {
+      this.$store.dispatch('UserModule/login', this.signInfo).then(() => {
+        this.$router.push('/todo')
+      })
     }
-
   }
 }
 </script>

@@ -8,6 +8,9 @@ const mutations: MutationTree<TodosState> = {
   remove: (state, id: number) => {
     state.todos = state.todos.filter((e: Todo) => e.id !== id)
   },
+  set: (state, todos: Todo[]) => {
+    state.todos = todos
+  },
 }
 
 export default mutations

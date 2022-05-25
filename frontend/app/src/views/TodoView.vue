@@ -6,14 +6,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import TodoList from '@/components/todoList.vue'
 import TodoForm from '@/components/todoForm.vue'
 
 @Component({
   components: {
     TodoList,
-    TodoForm
+    TodoForm,
   },
 })
 export default class TodoView extends Vue {}

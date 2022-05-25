@@ -31,7 +31,7 @@ export default class Auth {
       })
   }
 
-  register(authInfo:AuthInfo){
+  register(authInfo: AuthInfo) {
     const config: RequestConfig = {
       method: 'POST',
       url: endpointUrl + '/api/signup',
@@ -50,9 +50,9 @@ export default class Auth {
       })
   }
 
-  logout(){
+  logout() {
     return axios
-      .post(endpointUrl + '/api/signup',null,{withCredentials:true})
+      .post(endpointUrl + '/api/signup', null, { withCredentials: true })
       .then((res: AxiosResponse) => {
         const { data } = res
         return data

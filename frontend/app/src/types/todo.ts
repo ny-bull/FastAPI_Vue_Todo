@@ -8,3 +8,9 @@ export interface Todo {
 export interface TodosState {
   todos: Todo[]
 }
+
+export interface TodoPost {
+  title: string
+  description: string
+  userId: number
+}
