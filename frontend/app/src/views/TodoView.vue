@@ -1,7 +1,7 @@
 <template>
   <div class="todo">
-    <todo-list></todo-list>
     <todo-form></todo-form>
+    <todo-list></todo-list>
     <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" />
   </div>
 </template>
