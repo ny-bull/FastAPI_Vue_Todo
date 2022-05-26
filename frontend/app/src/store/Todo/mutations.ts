@@ -11,6 +11,9 @@ const mutations: MutationTree<TodosState> = {
   set: (state, todos: Todo[]) => {
     state.todos = todos
   },
+  reset: (state) => {
+    state.todos = []
+  },
 }
 
 export default mutations

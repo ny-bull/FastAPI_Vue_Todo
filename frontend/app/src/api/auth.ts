@@ -52,7 +52,7 @@ export default class Auth {
 
   logout() {
     return axios
-      .post(endpointUrl + '/api/signup', null, { withCredentials: true })
+      .post(endpointUrl + '/api/signout', null, { withCredentials: true })
       .then((res: AxiosResponse) => {
         const { data } = res
         return data

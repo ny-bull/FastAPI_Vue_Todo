@@ -29,6 +29,7 @@ const actions: ActionTree<UserState, RootState> = {
     const auth = new Auth()
     auth.logout()
     context.commit('reset')
+    context.commit('TodosModule/reset', null, { root: true })
   },
 }
 

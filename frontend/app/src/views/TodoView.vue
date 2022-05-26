@@ -2,6 +2,10 @@
   <div class="todo">
     <todo-form></todo-form>
     <todo-list></todo-list>
+    <font-awesome-icon
+      icon="fa-solid fa-arrow-right-from-bracket"
+      @click="logout()"
+    />
   </div>
 </template>
 
@@ -16,5 +20,11 @@ import TodoForm from '@/components/todoForm.vue'
     TodoForm,
   },
 })
-export default class TodoView extends Vue {}
+export default class TodoView extends Vue {
+  logout() {
+    this.$store.dispatch('UserModule/logout').then(() => {
+      this.$router.push('/')
+    })
+  }
+}
 </script>
