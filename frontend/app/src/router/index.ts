@@ -9,26 +9,26 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'user',
     component: UserView,
-    beforeEnter(to,from,next){
-      if(store.getters["UserModule/userId"] !=0){
-        next('/todo');
-      }else{
+    beforeEnter(to, from, next) {
+      if (store.getters['UserModule/userId'] != 0) {
+        next('/todo')
+      } else {
         next()
       }
-    }
+    },
   },
   {
     path: '/todo',
     name: 'todo',
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/TodoView.vue'),
-    beforeEnter(to,from,next){
-      if(store.getters["UserModule/userId"] !=0){
-        next();
-      }else{
+    beforeEnter(to, from, next) {
+      if (store.getters['UserModule/userId'] != 0) {
+        next()
+      } else {
         next('/')
       }
-    }
+    },
   },
 ]
 

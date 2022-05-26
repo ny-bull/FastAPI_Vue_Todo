@@ -2,7 +2,9 @@
   <div id="app">
     <nav class="pb-6">
       <router-link v-show="userId == 0" to="/" class="px-4">User</router-link>
-      <router-link v-show="userId != 0" to="/todo" class="px-4">Todo</router-link>
+      <router-link v-show="userId != 0" to="/todo" class="px-4"
+        >Todo</router-link
+      >
     </nav>
     <router-view />
   </div>
