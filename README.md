@@ -5,6 +5,13 @@ It is Todo App working in your local environment.
 Database,BackendAPI,Front all work only in local, so you check system and connection, easily.  
 Please use to learn, test, etc...  
 
+### Getting Started
+```bash
+git clone https://github.com/nyuta-tech/FastAPI_Vue_Todo.git
+cd FastAPI_Vue_Todo
+docker-compose up --build
+```
+
 ### Techs
 
 * Front
