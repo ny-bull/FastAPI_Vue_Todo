@@ -1,7 +1,7 @@
-import { TodosState, TodoPost } from '@/types/todo'
+import { TodosState, TodoPost, Todo } from '@/types/todo'
 import { ActionTree } from 'vuex'
 import { RootState } from '..'
-import { readTodo, createTodo } from '@/api/todos'
+import { readTodo, createTodo, deleteTodo, putTodo } from '@/api/todos'
 
 const actions: ActionTree<TodosState, RootState> = {
   get: async (context, userId: number) => {
@@ -11,22 +11,12 @@ const actions: ActionTree<TodosState, RootState> = {
   post: async (context, todoData: TodoPost) => {
     await createTodo(todoData.userId, todoData)
   },
-  //   add: async ({ commit }, todo: Todo) => {
-  //     if (await someAsyncAddMethod(todo)) {
-  //       commit('add', todo);
-  //       // 成功
-  //       return true;
-  //     }
-  //     // 失敗
-  //     return false;
-  //   },
-  //   remove: async ({ commit }, id: string ) => {
-  //     if (await someAsyncRemoveMethod(id)) {
-  //       commit('remove', id);
-  //       return true;
-  //     }
-  //     return false;
-  //   },
+  delete: async (context, todoData: Todo) => {
+    await deleteTodo(todoData)
+  },
+  put: async (context, todoData: Todo) => {
+    await putTodo(todoData)
+  },
 }
 
 export default actions

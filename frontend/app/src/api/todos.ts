@@ -17,8 +17,24 @@ const createTodo = async (userId: number, todo: TodoPost) => {
     todo,
     { withCredentials: true }
   )
-  console.log(data)
   return data
 }
 
-export { readTodo, createTodo }
+const deleteTodo = async (todoData: Todo) => {
+  await axios.delete(endpointUrl + `/api/todo/${todoData.id}`, {
+    withCredentials: true,
+  })
+}
+
+const putTodo = async (todoData: Todo) => {
+  await axios.put(
+    endpointUrl + `/api/todo/${todoData.id}`,
+    {
+      title: todoData.title,
+      description: todoData.description,
+    },
+    { withCredentials: true }
+  )
+}
+
+export { readTodo, createTodo, deleteTodo, putTodo }

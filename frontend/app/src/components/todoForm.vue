@@ -22,7 +22,8 @@
         />
       </div>
       <button
-        class="rounded-md bg-slate-200 px-2 my-4 w-4/5 text-slate-400"
+        class="rounded-md bg-slate-200 px-2 my-4 w-2/5 py-2 text-slate-800 disabled:opacity-25"
+        :disabled="!todoInfo.title || !todoInfo.description"
         @click="submit()"
       >
         登録
