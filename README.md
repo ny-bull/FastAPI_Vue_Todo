@@ -9,9 +9,17 @@ Please use to learn, test, etc...
 ```bash
 git clone https://github.com/nyuta-tech/FastAPI_Vue_Todo.git
 cd FastAPI_Vue_Todo
-docker-compose up --build
+docker-compose up -d
 ```
+here is FastAPI  
+http://localhost:9004/  
+swagger => /docs
 
+Start Vue App  
+```bash
+docker-compose exec frontend bash
+yarn serve
+```
 ### Techs
 
 * Front
